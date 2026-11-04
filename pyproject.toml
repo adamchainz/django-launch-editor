@@ -39,7 +39,6 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = [
-  "asgiref>=3.6",
   "django>=5.2",
   "launch-editor-py>=1",
 ]

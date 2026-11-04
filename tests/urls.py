@@ -9,6 +9,4 @@ urlpatterns = [
     path("error/", views.error),
     path("template-error/", views.template_error),
     path("column-error/", views.column_error),
-    path("not-found/", views.not_found),
-    path("not-found-class/", views.NotFoundView.as_view()),
 ]

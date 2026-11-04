@@ -158,17 +158,6 @@
     }
   }
 
-  // The debug 404 page names the view in a “Raised by:” row.
-  for (const th of document.querySelectorAll('#summary th')) {
-    const td = th.nextElementSibling
-    if (
-      th.textContent === 'Raised by:' &&
-      td?.firstChild?.nodeType === Node.TEXT_NODE
-    ) {
-      addButton([td.firstChild], data.raisedBy)
-    }
-  }
-
   // Template errors read “In template <code>name</code>, error at line
   // <strong>12</strong>”.
   const templateName = document.querySelector('#template p > code')

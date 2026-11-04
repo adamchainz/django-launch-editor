@@ -79,19 +79,6 @@ Installation
    You can use another prefix if required.
    If you forget this step, the debug error page shows a banner explaining it.
 
-4. Optionally, add the middleware, to also make the view on Django’s debug 404 page into a link:
-
-   .. code-block:: python
-
-       MIDDLEWARE = [
-           ...,
-           "django_launch_editor.middleware.LaunchEditorMiddleware",
-           ...,
-       ]
-
-   The debug 404 page names the view for the URL in its “Raised by” row, such as when the view raises ``Http404``.
-   The link opens the view’s definition.
-
 That’s it! 🎉
 Trigger an error with ``DEBUG = True``, and click the file location of any traceback frame, or template error, to open it in your editor.
 Where Python knows it, the editor opens at the column of the expression that failed, too.

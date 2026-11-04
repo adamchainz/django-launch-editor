@@ -49,12 +49,3 @@ class DjangoMarkupTests(SimpleTestCase):
             + r"<p>In template <code>[^<]+</code>, error at line <strong>\d+</strong>",
             html,
         )
-
-    def test_not_found_raised_by(self):
-        html = self.client.get("/not-found/").text
-
-        summary = html[html.index('<header id="summary">') : html.index("</header>")]
-        assert re.search(
-            r'<th scope="row">Raised by:</th>\s*<td>tests\.views\.not_found</td>',
-            summary,
-        )

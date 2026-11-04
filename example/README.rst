@@ -10,8 +10,6 @@ Run the server with:
 Open it at http://127.0.0.1:8000/ to see the debug error page for a ``KeyError``.
 Click a file location, like “…/views.py, line 20”, to open it in your editor.
 
-Open http://127.0.0.1:8000/items/kettle/ to see the debug 404 page, where the “Raised by” view is a link too.
-
 If the wrong editor opens, set the ``LAUNCH_EDITOR`` environment variable, for example:
 
 .. code-block:: sh

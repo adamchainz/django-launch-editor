@@ -219,7 +219,6 @@ name = "django-launch-editor"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
-    { name = "asgiref" },
     { name = "django", version = "5.2.18", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12' or extra == 'group-20-django-launch-editor-django52' or (extra == 'group-20-django-launch-editor-django60' and extra == 'group-20-django-launch-editor-django61')" },
     { name = "django", version = "6.0.9", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.12' and extra == 'group-20-django-launch-editor-django60') or (extra == 'group-20-django-launch-editor-django60' and extra == 'group-20-django-launch-editor-django61') or (extra == 'group-20-django-launch-editor-django52' and extra == 'group-20-django-launch-editor-django60') or (extra == 'group-20-django-launch-editor-django52' and extra == 'group-20-django-launch-editor-django61')" },
     { name = "django", version = "6.1.2", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.12' and extra != 'group-20-django-launch-editor-django52' and extra != 'group-20-django-launch-editor-django60') or (extra == 'group-20-django-launch-editor-django52' and extra == 'group-20-django-launch-editor-django60') or (extra == 'group-20-django-launch-editor-django52' and extra == 'group-20-django-launch-editor-django61') or (extra == 'group-20-django-launch-editor-django60' and extra == 'group-20-django-launch-editor-django61')" },
@@ -245,7 +244,6 @@ test = [
 
 [package.metadata]
 requires-dist = [
-    { name = "asgiref", specifier = ">=3.6" },
     { name = "django", specifier = ">=5.2" },
     { name = "launch-editor-py", specifier = ">=1" },
 ]

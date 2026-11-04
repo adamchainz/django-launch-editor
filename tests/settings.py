@@ -17,7 +17,6 @@ INSTALLED_APPS: list[str] = []
 
 MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
-    "django_launch_editor.middleware.LaunchEditorMiddleware",
 ]
 
 ROOT_URLCONF = "tests.urls"

@@ -122,7 +122,7 @@ def add_launch_editor(
     except NoReverseMatch:
         return insert(html, "</header>", banner_html(request), before=False)
 
-    config = {"url": url, "frames": [], "template": None, "raisedBy": None, **config}
+    config = {"url": url, "frames": [], "template": None, **config}
     return insert(
         html,
         "</body>",

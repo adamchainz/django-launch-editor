@@ -194,29 +194,33 @@ class LaunchEditorExceptionReporterTests(SimpleTestCase):
         assert "django-launch-editor" not in html
 
 
+# The `raise` line in tests.views.error, indented by four spaces.
+LINE = inspect.getsourcelines(tests.views.error)[1] + 1
+
+
 def fake_frame(
     positions: list[tuple[int | None, ...]], filename: str = tests.views.__file__
 ) -> dict[str, Any]:
     code = SimpleNamespace(co_positions=lambda: iter(positions))
     tb = SimpleNamespace(tb_frame=SimpleNamespace(f_code=code), tb_lasti=0)
-    return {"tb": tb, "filename": filename, "lineno": 9}
+    return {"tb": tb, "filename": filename, "lineno": LINE}
 
 
 class FrameColumnTests(SimpleTestCase):
     def test_column(self):
-        assert frame_column(fake_frame([(9, 9, 4, 10)])) == 5
+        assert frame_column(fake_frame([(LINE, LINE, 4, 10)])) == 5
 
     def test_other_line(self):
-        assert frame_column(fake_frame([(8, 9, 4, 10)])) is None
+        assert frame_column(fake_frame([(LINE - 1, LINE, 4, 10)])) is None
 
     def test_no_column(self):
-        assert frame_column(fake_frame([(9, 9, None, None)])) is None
+        assert frame_column(fake_frame([(LINE, LINE, None, None)])) is None
 
     def test_no_positions(self):
         assert frame_column(fake_frame([])) is None
 
     def test_unreadable_line(self):
-        frame = fake_frame([(9, 9, 4, 10)], filename="/does/not/exist.py")
+        frame = fake_frame([(LINE, LINE, 4, 10)], filename="/does/not/exist.py")
         assert frame_column(frame) is None
 
 
