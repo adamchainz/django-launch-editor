@@ -1,6 +1,6 @@
 # Use this file to generate the screenshots.
 #
-# First, run the exmaple server:
+# First, run the example server:
 #   cd example && uv run manage.py runserver
 #
 # Then, concurrently, capture screenshots from it with shot-scraper:
