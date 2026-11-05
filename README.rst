@@ -20,8 +20,6 @@ django-launch-editor
 
 ----
 
-👻
-
 Open files from Django’s debug error page in your editor.
 
 Makes the file locations on Django’s debug error page, like “/path/to/views.py, line 8”, into links that open the file at that line in your editor, using `launch-editor-py <https://github.com/adamchainz/launch-editor-py>`__.
