@@ -49,6 +49,14 @@
     }
   }
 
+  const COPY_ICON =
+    '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" ' +
+    'stroke="currentColor" stroke-width="2" stroke-linecap="round" ' +
+    'stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>' +
+    '<rect width="13" height="13" x="9" y="9" rx="2"/>' +
+    '</svg>'
+
   let dialog = null
 
   function getDialog () {
@@ -62,6 +70,22 @@
       title.id = 'django-launch-editor-title'
       title.textContent = 'Running editor not detected'
 
+      const copyButton = document.createElement('button')
+      copyButton.type = 'button'
+      copyButton.className = 'django-launch-editor-copy'
+      copyButton.title = 'Copy to clipboard'
+      copyButton.setAttribute('aria-label', 'Copy to clipboard')
+      copyButton.innerHTML = COPY_ICON
+      copyButton.addEventListener('click', async () => {
+        const code = dialog.querySelector('code')
+        // Called directly from the click, so browsers like Safari allow it.
+        try {
+          await navigator.clipboard.writeText(code.textContent)
+        } catch {
+          window.getSelection().selectAllChildren(code)
+        }
+      })
+
       const form = document.createElement('form')
       form.method = 'dialog'
       const button = document.createElement('button')
@@ -72,6 +96,7 @@
       dialog.append(
         title,
         document.createElement('p'),
+        copyButton,
         document.createElement('code'),
         form
       )
@@ -92,9 +117,12 @@
     const description = relative ? 'Relative path' : 'Path'
     const dialog = getDialog()
     dialog.querySelector('p').textContent = copied
-      ? `${description} with line number copied to clipboard:`
+      ? `${description} with line number copied to clipboard.`
       : `Copy the ${description.toLowerCase()} with line number:`
-    dialog.querySelector('code').textContent = location
+    const code = dialog.querySelector('code')
+    code.textContent = location
+    code.hidden = copied
+    dialog.querySelector('.django-launch-editor-copy').hidden = copied
     dialog.showModal()
   }
 

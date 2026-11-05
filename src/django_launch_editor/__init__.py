@@ -21,18 +21,34 @@ button.django-launch-editor {
   background: none; border: none; padding: 0; margin: 0;
   font: inherit; color: inherit; text-align: inherit;
   text-decoration: underline; cursor: pointer;
+  &:hover { text-decoration-thickness: 2px; }
+  & .fname { user-select: text; }
+  &:disabled { cursor: progress; }
 }
-button.django-launch-editor:hover { text-decoration-thickness: 2px; }
-button.django-launch-editor .fname { user-select: text; }
-button.django-launch-editor:disabled { cursor: progress; }
-.django-launch-editor-status { color: #666; }
-.django-launch-editor-status.error { color: #c00; }
-dialog.django-launch-editor-dialog { margin: auto; max-width: 40em; padding: 1.5em; border: 1px solid #ccc; border-radius: 6px; }
-dialog.django-launch-editor-dialog::backdrop { background: rgba(0, 0, 0, 0.4); }
-dialog.django-launch-editor-dialog h2 { margin: 0 0 0.5em; }
-dialog.django-launch-editor-dialog p { margin: 0 0 0.5em; }
-dialog.django-launch-editor-dialog code { display: block; padding: 0.5em; background: #f0f0f0; overflow-wrap: anywhere; user-select: all; }
-dialog.django-launch-editor-dialog form { margin-top: 1em; text-align: right; }
+.django-launch-editor-status {
+  color: #666;
+  &.error { color: #c00; }
+}
+dialog.django-launch-editor-dialog {
+  margin: auto; max-width: 40em; padding: 1.5em;
+  border: 1px solid #ccc; border-radius: 6px;
+  &::backdrop { background: rgba(0, 0, 0, 0.4); }
+  & h2 { margin: 0 0 0.5em; }
+  & p { margin: 0 0 0.5em; }
+  & code {
+    display: flow-root; padding: 0.5em; background: #f0f0f0;
+    overflow-wrap: anywhere; user-select: all;
+    &[hidden] { display: none; }
+  }
+  & .django-launch-editor-copy {
+    float: left; margin: 0 0.5em 0 0; padding: 0.4em;
+    line-height: 0; cursor: pointer;
+  }
+  & form {
+    clear: both; margin-top: 1em; text-align: right;
+    & button { padding: 0.4em 1.2em; font: inherit; cursor: pointer; }
+  }
+}
 """
 
 BANNER_STYLE = """
