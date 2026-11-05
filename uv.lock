@@ -3,11 +3,11 @@ revision = 5
 requires-python = ">=3.11"
 resolution-markers = [
     "python_full_version >= '3.12' and extra != 'group-20-django-launch-editor-django52' and extra != 'group-20-django-launch-editor-django60' and extra == 'group-20-django-launch-editor-django61'",
-    "python_full_version < '3.12' and extra != 'group-20-django-launch-editor-django52' and extra != 'group-20-django-launch-editor-django60' and extra == 'group-20-django-launch-editor-django61'",
     "python_full_version >= '3.12' and extra != 'group-20-django-launch-editor-django52' and extra == 'group-20-django-launch-editor-django60' and extra != 'group-20-django-launch-editor-django61'",
+    "python_full_version >= '3.12' and extra != 'group-20-django-launch-editor-django52' and extra != 'group-20-django-launch-editor-django60' and extra != 'group-20-django-launch-editor-django61'",
+    "python_full_version < '3.12' and extra != 'group-20-django-launch-editor-django52' and extra != 'group-20-django-launch-editor-django60' and extra == 'group-20-django-launch-editor-django61'",
     "python_full_version < '3.12' and extra != 'group-20-django-launch-editor-django52' and extra == 'group-20-django-launch-editor-django60' and extra != 'group-20-django-launch-editor-django61'",
     "extra == 'group-20-django-launch-editor-django52' and extra != 'group-20-django-launch-editor-django60' and extra != 'group-20-django-launch-editor-django61'",
-    "python_full_version >= '3.12' and extra != 'group-20-django-launch-editor-django52' and extra != 'group-20-django-launch-editor-django60' and extra != 'group-20-django-launch-editor-django61'",
     "python_full_version < '3.12' and extra != 'group-20-django-launch-editor-django52' and extra != 'group-20-django-launch-editor-django60' and extra != 'group-20-django-launch-editor-django61'",
 ]
 conflicts = [[
@@ -216,7 +216,7 @@ wheels = [
 
 [[package]]
 name = "django-launch-editor"
-version = "0.1.0"
+version = "1.0.0"
 source = { editable = "." }
 dependencies = [
     { name = "django", version = "5.2.19", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12' or extra == 'group-20-django-launch-editor-django52' or (extra == 'group-20-django-launch-editor-django60' and extra == 'group-20-django-launch-editor-django61')" },
@@ -309,7 +309,7 @@ name = "pytest"
 version = "9.2.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'group-20-django-launch-editor-django52' and extra == 'group-20-django-launch-editor-django60') or (extra == 'group-20-django-launch-editor-django52' and extra == 'group-20-django-launch-editor-django61') or (extra == 'group-20-django-launch-editor-django60' and extra == 'group-20-django-launch-editor-django61')" },
+    { name = "colorama", marker = "sys_platform == 'win32'" },
     { name = "iniconfig" },
     { name = "packaging" },
     { name = "pluggy" },

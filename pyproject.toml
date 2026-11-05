@@ -6,7 +6,7 @@ requires = [
 
 [project]
 name = "django-launch-editor"
-version = "0.1.0"
+version = "1.0.0"
 description = "Open files from Django’s debug error page in your editor."
 readme = "README.rst"
 keywords = [
