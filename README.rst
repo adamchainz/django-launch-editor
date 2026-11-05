@@ -84,10 +84,18 @@ Where Python knows it, the editor opens at the column of the expression that fai
 Editor selection
 ----------------
 
-django-launch editor relies on `launch-editor-py <https://github.com/adamchainz/launch-editor-py>`__ to find and launch the current editor.
-See that library’s documentation for information on how the editor is picked or how to override it.
+django-launch-editor attempts to detect a running non-terminal editor with `launch-editor-py <https://github.com/adamchainz/launch-editor-py>`__.
+If none is detected, it falls back to showing a dialog for copying the clicked file path to your clipboard.
 
-The editor runs on the machine running Django, so this package is only useful when you develop locally, not on a remote server or inside a container.
+Because django-launch-editor runs within the Django server, it can only launch an editor when you run Django on your development machine, not in a container or on a remote server.
+Similarly, it must skip terminal editors like Vim, since they would take over the terminal running Django.
+
+For information on how the editor is picked, or how to override it, see `the launch-editor-py documentation <https://github.com/adamchainz/launch-editor-py>`__.
+
+If no editor is found, django-launch-editor falls back to showing a dialog headed “Running editor not detected”, and copying the file location to your clipboard.
+The location has the form ``path:line``, such as ``myapp/views.py:8``.
+
+If the browser blocks the automatic copy, the dialog shows a copy icon button to the left of the location.
 
 Security
 --------
