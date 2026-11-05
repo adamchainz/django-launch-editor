@@ -1,0 +1,50 @@
+# Use this file to generate the screenshots.
+#
+# First, run the example server:
+#   cd example && uv run manage.py runserver
+#
+# Then, concurrently, capture screenshots from it with shot-scraper:
+#   uvx shot-scraper multi shot_scraper.yml
+
+- url: http://127.0.0.1:8421/
+  output: screenshot.png
+  width: 1280
+  height: 720
+  retina: true
+  wait: 1000
+
+- url: http://127.0.0.1:8421/
+  output: screenshot-dialog-copied.png
+  width: 1280
+  height: 720
+  retina: true
+  javascript: |
+    (() => {
+      window.fetch = async () => new Response(
+        JSON.stringify({location: 'example/views.py:20', relative: true}),
+        {status: 200, headers: {'Content-Type': 'application/json'}}
+      )
+      navigator.clipboard.writeText = async () => {}
+      document.querySelector('#summary button.django-launch-editor').click()
+    })()
+  wait_for: document.querySelector('dialog[open]')
+  selector: dialog
+  padding: 20
+
+- url: http://127.0.0.1:8421/
+  output: screenshot-dialog-manual.png
+  width: 1280
+  height: 720
+  retina: true
+  javascript: |
+    (() => {
+      window.fetch = async () => new Response(
+        JSON.stringify({location: 'example/views.py:20', relative: true}),
+        {status: 200, headers: {'Content-Type': 'application/json'}}
+      )
+      navigator.clipboard.writeText = async () => { throw new Error('blocked') }
+      document.querySelector('#summary button.django-launch-editor').click()
+    })()
+  wait_for: document.querySelector('dialog[open]')
+  selector: dialog
+  padding: 20

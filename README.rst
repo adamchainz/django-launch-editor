@@ -24,11 +24,6 @@ Open files from Django’s debug error page in your editor.
 
 Makes the file locations on Django’s debug error page, like “/path/to/views.py, line 8”, into links that open the file at that line in your editor, using `launch-editor-py <https://github.com/adamchainz/launch-editor-py>`__.
 
-.. Generated with:
-.. Clone the repository into a directory called django-launch-editor, so paths in the screenshot use that name, then:
-.. cd example && uv run manage.py runserver
-.. …then in another tab:
-.. uvx shot-scraper --width 1280 --height 720 --retina --wait 1000 http://127.0.0.1:8421/ -o screenshot.png
 
 .. figure:: https://raw.githubusercontent.com/adamchainz/django-launch-editor/main/screenshot.png
    :alt: django-launch-editor screenshot
@@ -92,10 +87,19 @@ Similarly, it must skip terminal editors like Vim, since they would take over th
 
 For information on how the editor is picked, or how to override it, see `the launch-editor-py documentation <https://github.com/adamchainz/launch-editor-py>`__.
 
-If no editor is found, django-launch-editor falls back to showing a dialog headed “Running editor not detected”, and copying the file location to your clipboard.
+If no editor is found, django-launch-editor falls back to showing a dialog headed “Running editor not detected”, and copying the file location to your clipboard:
+
+
+.. figure:: https://raw.githubusercontent.com/adamchainz/django-launch-editor/main/screenshot-dialog-copied.png
+   :alt: Screenshot showing dialog with copied file location
+
 The location has the form ``path:line``, such as ``myapp/views.py:8``.
 
-If the browser blocks the automatic copy, the dialog shows a copy icon button to the left of the location.
+If the browser blocks the automatic copy, the dialog shows a copy icon button to the left of the location:
+
+.. figure:: https://raw.githubusercontent.com/adamchainz/django-launch-editor/main/screenshot-dialog-manual.png
+   :alt: Screenshot showing dialog with manual fallback
+
 
 Security
 --------
