@@ -9,6 +9,8 @@ BASE_DIR = Path(__file__).resolve().parent
 
 DATABASES: dict[str, dict[str, Any]] = {}
 
+DEBUG = True
+
 DEFAULT_EXCEPTION_REPORTER = "django_launch_editor.LaunchEditorExceptionReporter"
 
 INSTALLED_APPS: list[str] = []

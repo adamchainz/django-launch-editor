@@ -14,7 +14,7 @@ from django.utils.safestring import mark_safe
 
 import tests.urls_without_launch_editor
 import tests.views
-from django_launch_editor import (
+from django_launch_editor.reporter import (
     LaunchEditorExceptionReporter,
     frame_column,
     insert,
