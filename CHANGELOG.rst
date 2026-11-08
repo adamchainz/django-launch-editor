@@ -2,8 +2,8 @@
 Changelog
 =========
 
-Unreleased
-----------
+1.1.0 (2026-11-08)
+------------------
 
 * Reduce import cost by ~3ms when ``DEBUG`` is off, by lazily importing ``LaunchEditorExceptionReporter`` and skipping the URL definition.
 

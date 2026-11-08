@@ -216,7 +216,7 @@ wheels = [
 
 [[package]]
 name = "django-launch-editor"
-version = "1.0.0"
+version = "1.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "django", version = "5.2.19", source = { registry = "https://pypi.org/simple" }, marker = "python_full_version < '3.12' or extra == 'group-20-django-launch-editor-django52' or (extra == 'group-20-django-launch-editor-django60' and extra == 'group-20-django-launch-editor-django61')" },
