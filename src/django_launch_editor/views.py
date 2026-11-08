@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+__lazy_modules__ = ["launch_editor"]
+
 import os
 from http import HTTPStatus
 
